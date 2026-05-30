@@ -1,0 +1,162 @@
+.finale-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(168,85,247,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,110,180,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(245,200,66,0.15) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+/* Orbs */
+.finale-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.finale-orb-1 {
+  width: 600px; height: 600px;
+  background: rgba(168,85,247,0.3);
+  top: -200px; left: -200px;
+  animation: floatSlow 8s ease-in-out infinite;
+}
+.finale-orb-2 {
+  width: 500px; height: 500px;
+  background: rgba(255,110,180,0.25);
+  bottom: -150px; right: -150px;
+  animation: floatSlow 10s ease-in-out infinite reverse;
+}
+.finale-orb-3 {
+  width: 350px; height: 350px;
+  background: rgba(245,200,66,0.2);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* Sparkles */
+.finale-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.finale-sparkle {
+  position: absolute;
+  color: var(--gold);
+  filter: drop-shadow(0 0 6px var(--gold));
+}
+
+/* Balloons */
+.finale-balloon {
+  position: fixed;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 16px rgba(255,110,180,0.4));
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Hearts */
+.finale-hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+.finale-heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.3rem;
+}
+
+/* Content */
+.finale-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.finale-emoji-row {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(255,110,180,0.5));
+}
+
+/* Title */
+.finale-title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.finale-letter {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  line-height: 1;
+  filter: drop-shadow(0 0 30px rgba(255,110,180,0.5));
+  letter-spacing: 0.02em;
+}
+.finale-letter.space { width: 0.4em; }
+
+.finale-heart-icon {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 30px rgba(255,110,180,0.9));
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.finale-subtext {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-primary);
+  font-style: italic;
+  font-weight: 600;
+  text-shadow: 0 0 40px rgba(255,110,180,0.4);
+}
+
+.finale-subtext-2 {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+.finale-bottom-emojis {
+  display: flex;
+  gap: 20px;
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px rgba(255,110,180,0.4));
+}
+
+.finale-signature {
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .finale-letter { font-size: 2.5rem; }
+  .finale-heart-icon { font-size: 3.5rem; }
+  .finale-bottom-emojis { gap: 12px; font-size: 1.4rem; }
+}

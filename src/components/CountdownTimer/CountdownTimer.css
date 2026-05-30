@@ -1,0 +1,125 @@
+.countdown-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(255,143,171,0.12) 0%, transparent 70%);
+}
+
+.cd-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cd-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--pink);
+  opacity: 0.5;
+}
+
+.cd-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.cd-eyebrow {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--pink-soft);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.cd-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 60px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.cd-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cd-card {
+  position: relative;
+  width: 160px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.cd-glow {
+  position: absolute;
+  inset: 0;
+  background: var(--grad-pink);
+  opacity: 0;
+  border-radius: var(--r-lg);
+  transition: opacity 0.3s;
+}
+.cd-card:hover .cd-glow { opacity: 0.15; }
+
+.cd-value {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.cd-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text2);
+  position: relative;
+  z-index: 1;
+}
+
+.cd-birthday-msg {
+  margin-top: 40px;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(255,214,10,0.6);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+  .cd-card { width: 130px; height: 150px; }
+  .cd-value { font-size: 2.8rem; }
+  .cd-cards { gap: 12px; }
+}
+
+@media (max-width: 400px) {
+  .cd-card { width: 110px; height: 130px; }
+  .cd-value { font-size: 2.2rem; }
+}

@@ -1,0 +1,65 @@
+.os-wrap {
+  position: fixed; inset: 0; overflow: hidden;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+}
+
+.os-orb { position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none; }
+.os-o1 { width:550px;height:550px;background:radial-gradient(circle,rgba(255,143,171,.22),transparent);top:-140px;left:-140px;animation:floatY 8s ease-in-out infinite; }
+.os-o2 { width:440px;height:440px;background:radial-gradient(circle,rgba(216,180,254,.2),transparent);bottom:-100px;right:-100px;animation:floatY 10s ease-in-out infinite reverse; }
+.os-o3 { width:280px;height:280px;background:radial-gradient(circle,rgba(255,214,10,.12),transparent);top:40%;left:60%;animation:floatY 6s ease-in-out infinite; }
+
+.os-star { position:absolute;color:var(--gold);filter:drop-shadow(0 0 5px var(--gold));pointer-events:none; }
+
+.os-hearts { position:absolute;inset:0;overflow:hidden;pointer-events:none; }
+.os-heart { position:absolute;bottom:-40px;filter:drop-shadow(0 0 8px rgba(255,143,171,.5)); }
+
+.os-center {
+  position:relative;z-index:5;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+  padding:32px 24px;
+  max-width:680px;
+}
+
+.os-icon {
+  font-size:5rem;
+  filter:drop-shadow(0 0 30px rgba(255,143,171,.9));
+  animation:heartbeat 2.5s ease-in-out infinite;
+}
+
+.os-line1 {
+  font-family:var(--font-serif);
+  font-size:clamp(1.5rem,4.5vw,2.5rem);
+  font-style:italic;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.45;
+  text-shadow:0 0 60px rgba(255,143,171,.35);
+}
+
+.os-line2 {
+  font-family:var(--font-body);
+  font-size:clamp(1.1rem,3vw,1.55rem);
+  font-style:italic;
+  color:var(--pink-soft);
+  line-height:1.6;
+  filter:drop-shadow(0 0 20px rgba(255,143,171,.4));
+}
+
+.os-btn {
+  padding:14px 44px;
+  font-size:1rem;
+  letter-spacing:0.06em;
+  margin-top:8px;
+  animation:pulse-glow 2.5s ease-in-out infinite;
+}
+
+.os-vignette {
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at center, transparent 40%, rgba(12,5,8,.65) 100%);
+  pointer-events:none;z-index:3;
+}
+
+@media(max-width:480px){ .os-line1{font-size:1.4rem} .os-line2{font-size:1.05rem} }

@@ -1,0 +1,113 @@
+.notes-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 60%, rgba(168,85,247,0.1) 0%, transparent 60%);
+}
+
+.notes-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+.notes-orb-1 {
+  width: 400px; height: 400px;
+  background: rgba(245,200,66,0.08);
+  top: 10%; right: -80px;
+}
+.notes-orb-2 {
+  width: 350px; height: 350px;
+  background: rgba(255,110,180,0.1);
+  bottom: 10%; left: -60px;
+}
+
+.notes-container {
+  position: relative;
+  height: 480px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.note-card {
+  position: absolute;
+  width: 200px;
+  background: linear-gradient(145deg, #fffde8 0%, #fff9c4 100%);
+  border-radius: 4px;
+  padding: 28px 20px 20px;
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.2),
+    2px 2px 0 #e8e4a0,
+    4px 4px 0 rgba(0,0,0,0.05);
+  cursor: pointer;
+  user-select: none;
+  z-index: 5;
+}
+
+.note-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff6eb4, #a855f7);
+  box-shadow: 0 2px 8px rgba(168,85,247,0.5);
+}
+
+.note-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  color: #3a3020;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+.note-lines {
+  position: absolute;
+  inset: 36px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.note-line {
+  height: 1px;
+  background: rgba(100,80,40,0.15);
+  border-radius: 1px;
+}
+
+.notes-hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.notes-heart {
+  position: absolute;
+  font-size: 1rem;
+  filter: drop-shadow(0 0 6px rgba(255,110,180,0.4));
+}
+
+@media (max-width: 768px) {
+  .notes-container { height: auto; position: static; }
+  .note-card { position: static; width: 100%; margin-bottom: 20px; }
+  .notes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}

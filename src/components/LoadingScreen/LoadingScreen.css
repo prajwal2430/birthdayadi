@@ -1,0 +1,17 @@
+.ls-wrap {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; overflow: hidden;
+}
+.ls-orb { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+.ls-o1 { width:420px;height:420px;background:radial-gradient(circle,rgba(255,143,171,.35),transparent);top:-80px;left:-80px;animation:floatY 7s ease-in-out infinite; }
+.ls-o2 { width:320px;height:320px;background:radial-gradient(circle,rgba(216,180,254,.3),transparent);bottom:-60px;right:-60px;animation:floatY 9s ease-in-out infinite reverse; }
+.ls-o3 { width:200px;height:200px;background:radial-gradient(circle,rgba(255,214,10,.2),transparent);top:50%;left:50%;transform:translate(-50%,-50%);animation:floatY 5s ease-in-out infinite; }
+.ls-star { position:absolute;color:var(--gold);filter:drop-shadow(0 0 5px var(--gold)); }
+.ls-content { position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px; }
+.ls-heart { font-size:3.8rem;filter:drop-shadow(0 0 20px rgba(255,143,171,.8)); }
+.ls-title { font-family:var(--font-serif);font-size:1.9rem;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic; }
+.ls-dots { display:flex;gap:9px; }
+.ls-dot { width:9px;height:9px;border-radius:50%;background:var(--grad-pink);display:inline-block; }
+.ls-sub { font-family:var(--font-body);font-size:1.05rem;color:var(--text2);font-style:italic; }

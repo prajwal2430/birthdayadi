@@ -1,0 +1,67 @@
+.ms-section {
+  position:relative;height:100vh;width:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 24px;overflow:hidden;
+  background:radial-gradient(ellipse at 65% 35%, rgba(255,214,10,.07) 0%, transparent 60%);
+}
+.ms-orb { position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none; }
+.ms-o1 { width:420px;height:420px;background:rgba(255,143,171,.18);top:-60px;left:-60px; }
+.ms-o2 { width:350px;height:350px;background:rgba(216,180,254,.13);bottom:0;right:0; }
+
+.ms-header { text-align:center;margin-bottom:28px;z-index:2;position:relative; }
+.ms-title { font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.4rem);font-style:italic;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:6px; }
+
+.ms-player {
+  position:relative;z-index:2;
+  max-width:780px;width:100%;
+  padding:36px;
+  display:grid;grid-template-columns:180px 1fr;grid-template-rows:auto auto;gap:28px;
+}
+
+/* Vinyl */
+.ms-vinyl-area { position:relative;display:flex;align-items:center;justify-content:center;grid-row:1/3; }
+.ms-vinyl {
+  position:relative;width:150px;height:150px;border-radius:50%;
+  background:conic-gradient(#1a0a12 0deg,#0c0508 30deg,#1a0a12 60deg,#0c0508 90deg,#1a0a12 120deg,#0c0508 150deg,#1a0a12 180deg,#0c0508 210deg,#1a0a12 240deg,#0c0508 270deg,#1a0a12 300deg,#0c0508 330deg,#1a0a12 360deg);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 36px rgba(0,0,0,.5);
+}
+.ms-vinyl-center { width:56px;height:56px;border-radius:50%;background:var(--grad-pink);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 0 18px rgba(255,143,171,.5);z-index:2; }
+.ms-groove { position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.05); }
+.ms-glow-ring { position:absolute;width:170px;height:170px;border-radius:50%;border:2px solid transparent;background:conic-gradient(from 0deg,var(--pink),var(--lavender),var(--gold),var(--pink)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;animation:spinSlow 3s linear infinite; }
+
+/* Song info */
+.ms-info { display:flex;flex-direction:column;gap:14px; }
+.ms-song { font-family:var(--font-serif);font-size:1.55rem;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700; }
+.ms-artist { font-size:.88rem;color:var(--text3);font-family:var(--font-sans); }
+
+.ms-prog-track { height:3px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden; }
+.ms-prog-fill  { height:100%;background:var(--grad-warm);transition:width .1s linear; }
+.ms-time { display:flex;justify-content:space-between;font-size:.72rem;color:var(--text3);font-family:var(--font-sans); }
+
+.ms-controls { display:flex;align-items:center;gap:14px; }
+.ms-ctrl { background:none;border:none;color:var(--text2);font-size:1.25rem;cursor:pointer;display:flex;align-items:center;transition:color .2s; }
+.ms-ctrl:hover { color:var(--pink); }
+.ms-play { width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem; }
+.ms-like { background:none;border:none;color:var(--text2);font-size:1.25rem;cursor:pointer;display:flex;align-items:center;margin-left:auto;transition:color .2s; }
+.ms-like.liked { color:var(--pink); }
+
+/* Playlist */
+.ms-playlist { grid-column:1/3;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;flex-direction:column;gap:3px; }
+.ms-item { display:flex;align-items:center;gap:11px;padding:10px 14px;border-radius:var(--r-md);cursor:pointer;transition:background .2s; }
+.ms-item:hover { background:rgba(255,255,255,.05); }
+.ms-item.active { background:rgba(255,143,171,.12); }
+.ms-emoji { font-size:1.1rem; }
+.ms-meta { flex:1; }
+.ms-item-title { font-family:var(--font-sans);font-size:.88rem;color:var(--text);font-weight:500; }
+.ms-item.active .ms-item-title { color:var(--pink); }
+.ms-item-artist { font-size:.72rem;color:var(--text3); }
+.ms-dur { font-size:.72rem;color:var(--text3);font-family:var(--font-sans); }
+.ms-bars { display:flex;gap:2px;align-items:flex-end;height:18px; }
+.ms-bar  { width:3px;background:var(--pink);border-radius:2px; }
+
+@media(max-width:600px){
+  .ms-player{grid-template-columns:1fr;padding:24px 18px}
+  .ms-vinyl-area{grid-row:auto}
+  .ms-playlist{grid-column:1}
+}

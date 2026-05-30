@@ -1,0 +1,168 @@
+/* ============================================
+   GLOBAL CSS — Romantic Birthday Theme
+   Pink · Lavender · Gold · White
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  --bg:            #0c0508;
+  --bg2:           #130a0e;
+
+  --pink:          #ff8fab;
+  --pink-soft:     #ffb3c6;
+  --pink-deep:     #e05c7a;
+  --lavender:      #d8b4fe;
+  --lavender-soft: #ede9fe;
+  --gold:          #ffd60a;
+  --gold-soft:     #fff3a0;
+  --cream:         #fff5f7;
+  --white:         #ffffff;
+
+  --grad-main:     linear-gradient(135deg, #ff8fab 0%, #d8b4fe 50%, #ffd60a 100%);
+  --grad-pink:     linear-gradient(135deg, #ff8fab, #e05c7a);
+  --grad-lav:      linear-gradient(135deg, #d8b4fe, #a78bfa);
+  --grad-warm:     linear-gradient(135deg, #ff8fab 0%, #ffd60a 100%);
+  --grad-bg:
+    radial-gradient(ellipse at 15% 40%, rgba(255,143,171,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(216,180,254,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 85%, rgba(255,214,10,0.08) 0%, transparent 50%);
+
+  --glass:         rgba(255,255,255,0.06);
+  --glass-border:  rgba(255,255,255,0.14);
+  --glass-shadow:  0 8px 40px rgba(0,0,0,0.45);
+
+  --text:          #fff5f7;
+  --text2:         rgba(255,245,247,0.7);
+  --text3:         rgba(255,245,247,0.4);
+
+  --font-serif:    'Playfair Display', Georgia, serif;
+  --font-script:   'Dancing Script', cursive;
+  --font-body:     'Cormorant Garamond', Georgia, serif;
+  --font-sans:     'Inter', sans-serif;
+
+  --r-sm: 10px; --r-md: 18px; --r-lg: 28px; --r-xl: 40px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  background-image: var(--grad-bg);
+  background-attachment: fixed;
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  cursor: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--pink), var(--lavender));
+  border-radius: 3px;
+}
+
+/* ── Selection ── */
+::selection { background: rgba(255,143,171,0.35); color: white; }
+
+/* ── Typography ── */
+h1,h2,h3 { font-family: var(--font-serif); line-height: 1.2; }
+
+/* ── Glass card ── */
+.glass, .glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-radius: var(--r-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ── Gradient text ── */
+.g-text {
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow button ── */
+.glow-btn {
+  position: relative;
+  background: var(--grad-pink);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.3s;
+  overflow: hidden;
+}
+.glow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(255,143,171,0.55);
+}
+
+/* ── Keyframes ── */
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+@keyframes floatRot {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33%     { transform: translateY(-14px) rotate(3deg); }
+  66%     { transform: translateY(-7px) rotate(-2deg); }
+}
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 20px rgba(255,143,171,0.3); }
+  50%     { box-shadow: 0 0 60px rgba(255,143,171,0.7), 0 0 100px rgba(216,180,254,0.3); }
+}
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  14%     { transform: scale(1.3); }
+  28%     { transform: scale(1); }
+  42%     { transform: scale(1.2); }
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.15; transform: scale(0.7); }
+  50%     { opacity: 1;    transform: scale(1.3); }
+}
+@keyframes flicker {
+  0%,100% { opacity:1; transform:scaleY(1) translateX(0); }
+  25%     { opacity:.9; transform:scaleY(1.05) translateX(1px); }
+  75%     { opacity:.85; transform:scaleY(.97) translateX(-1px); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes riseUp {
+  0%   { transform: translateY(0) rotate(var(--r,0deg)); opacity:1; }
+  100% { transform: translateY(-200px) rotate(var(--r,0deg)); opacity:0; }
+}
+@keyframes slideInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Cursor ── */
+.custom-cursor { position: fixed; top:0; left:0; pointer-events:none; z-index:99999; }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+  body { cursor: auto; }
+  .custom-cursor { display: none; }
+}

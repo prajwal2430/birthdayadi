@@ -1,0 +1,123 @@
+* { box-sizing: border-box; }
+
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Pager shell ── */
+.pager-root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ── Viewport clip ── */
+.pager-viewport {
+  position: absolute;
+  inset: 0;
+  /* leave 60px at the bottom for the nav bar */
+  bottom: 60px;
+  overflow: hidden;
+}
+
+/* ── Individual page ── */
+.pager-page {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.pager-page::-webkit-scrollbar { width: 4px; }
+.pager-page::-webkit-scrollbar-thumb {
+  background: rgba(168,85,247,0.4);
+  border-radius: 2px;
+}
+
+/* Make every section fill the available height */
+.pager-page > section,
+.pager-page > div {
+  min-height: 100%;
+  width: 100%;
+}
+
+/* ── Bottom navigation bar ── */
+.pager-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(8, 8, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 9999;
+  padding: 0 20px;
+}
+
+/* ── Prev / Next buttons ── */
+.pager-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+}
+.pager-nav-btn:hover:not(:disabled) {
+  background: var(--grad-pink);
+  border-color: transparent;
+}
+.pager-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* ── Dot indicators ── */
+.pager-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.pager-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s;
+}
+.pager-dot.active {
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink);
+}
+.pager-dot:hover { background: var(--lavender); }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .pager-dots { gap: 5px; }
+  .pager-dot  { width: 6px; height: 6px; }
+  .pager-nav-btn { width: 32px; height: 32px; font-size: 0.9rem; }
+  .pager-bottom-nav { gap: 10px; padding: 0 12px; }
+}
